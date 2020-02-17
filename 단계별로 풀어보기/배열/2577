@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main(){
+    int i, j, a, b, c, res=0, cnt=0;
+    int arr1[10]={0,};
+    int arr2[10]={0,};
+    scanf("%d %d %d", &a, &b, &c);
+    res = a*b*c;
+    
+    for(i=0; ; i++){
+        arr1[i]=res%10;
+        cnt++;
+        res /= 10;
+        if(res<10){
+            arr1[i+1]=res;
+            cnt++;
+            break;
+        }
+    }
+    
+    for(i=0; i<cnt; i++){
+        for(j=0; j<10; j++){
+            if(arr1[i]==j)
+                arr2[j]++;
+        }
+        
+        
+    }
+    
+    for(i=0; i<=9; i++){
+        printf("%d\n", arr2[i]);
+    }
+}
