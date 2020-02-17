@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main(){
+    float max=0, sum=0;
+    int n, i;
+    float arr[1000]={0,};
+    scanf("%d", &n);
+    
+    for(i=0; i<n; i++)
+        scanf("%f", &arr[i]);
+    
+    max = arr[0];
+    for(i=0; i<n; i++){
+        if(max<=arr[i])         max = arr[i];                 // 점수 중에서 최대값을 구한다
+    }
+    
+    for(i=0; i<n; i++){
+        arr[i] = arr[i]/max*100;                              // 조건에 맞게 각 점수들을 바꾼다
+        sum += arr[i];                                        // 점수들의 총합을 
+    }
+        
+    printf("%f\n", sum/n);
+}
