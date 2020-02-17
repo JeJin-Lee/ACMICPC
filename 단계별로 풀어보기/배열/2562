@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main(){
+    int i, max=0, locate=0, arr[9]={0,};
+    for(i=0; i<9; i++)
+        scanf("%d\n", &arr[i]);
+    
+     max = arr[0];
+    for(i=0; i<9; i++){
+        if(max<=arr[i]){
+            max = arr[i];
+            locate = i+1;
+        }
+    }
+    printf("%d\n%d\n", max, locate);
+}
