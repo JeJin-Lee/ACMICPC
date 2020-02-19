@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+int score();                      //score 함수가 정의되어 있다는 것을 알린다
+int main(){
+    int n,i,sum=0;
+    char arr[80]={0,};
+    scanf("%d", &n);
+    
+    for(i=0; i<n; i++){
+        scanf("%s", arr);         //n의 값만큼, for문을 반복하며 arr값들을 입력받고, 각 arr에 대한 점수 총합을 출력한다
+        sum = score(arr);
+        printf("%d\n", sum);
+    }
+}
+int score(char *arr){             //int형 매개변수 함수, char형 배열을 입력받는다
+    int score_sum=0, point=1, i;    // 점수의 총점을 더해줄 score_sum 변수, 획득 점수를 더해줄 point 변수를 선언한다.
+    while(strlen(arr)>i){           // 문자열의 길이만큼 반복문을 실행
+        if(arr[i]=='O'){            // 만약 문제를 맞췄을 때
+            score_sum+=point;       // 총점에다가 point를 더해준다. 이때 문제를 연속으로 맞췄다면, 맞춘 개수만큼 point의 값이
+            point++;                // 증가해져 있을 것이기 때문에 총점을 계산할 수 있다
+        }
+        else
+            point=1;                // 틀렸을 경우, point를 1로 초기화하여 그 후에 문제를 맞췄을 시 다시 1점부터 획득하게 한다.
+        i++;
+    }
+    return score_sum;               // 반복문을 빠져나오면, 총합을 계산하여 반
+}
