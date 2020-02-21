@@ -1,0 +1,25 @@
+#include <stdio.h>
+int Hansu(int n){
+    int a,b,c,i,cnt=0;
+    if(n<100)
+        return 1;
+    if(n>=100){
+        c=n%10;
+        b=(n/10)%10;
+        a=n/100;
+        
+        if(2*b==a+c)
+            return 1;    
+        else
+            return 0;
+    }
+}
+
+int main(){
+    int n,i,cnt;
+    scanf("%d", &n);
+    for(i=1; i<=n; i++){
+        cnt += Hansu(i);    
+    }
+    printf("%d\n", cnt);
+}
