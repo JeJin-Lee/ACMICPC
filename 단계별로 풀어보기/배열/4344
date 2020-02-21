@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main(){
+    int C, i, j;
+    scanf("%d", &C);
+    for(i=0; i<C; i++){
+        int n,cnt=0;
+        float arr[1001]={0,};
+        float ave, sum=0;
+        
+        scanf("%d", &n);
+        for(j=0; j<n; j++){
+            scanf("%f", &arr[j]);
+            sum += arr[j];
+        }
+        ave = sum/n;
+        
+        for(i=0; i<n; i++){
+        if(ave<=arr[i])
+            cnt++;
+        }
+        printf("%.3f", (cnt/n)*100);
+    }
+    
+}
