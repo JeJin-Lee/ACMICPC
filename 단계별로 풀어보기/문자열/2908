@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int a,b,i,j;
+    int cmp1, cmp2;               //바꾼 두 수를 비교하기 위한 변수
+    scanf("%d %d", &a, &b);
+    int *s1, *s2;
+    s1 = malloc(sizeof(int)*3);
+    s2 = malloc(sizeof(int)*3);
+        
+    for(i=0; i<3; i++){             //입력받은 두 수 a,b를 뒤집어서 각각의 자리 수를 s1, s2에 저장
+        s1[i] = a%10;
+        a/=10;
+        s2[i] = b%10;
+        b/=10;
+    }                               
+    cmp1 = 100*s1[0]+10*s1[1]+s1[2];    // 뒤집어진 것 계산한 후 비교
+    cmp2 = 100*s2[0]+10*s2[1]+s2[2];
+    if(cmp1>=cmp2)
+        printf("%d", cmp1);
+    if(cmp2>cmp1)
+        printf("%d", cmp2);
+}
+
+
