@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+    int n, i, sum=0;
+    char arr[100]={0,};
+    scanf("%d",&n);
+    scanf("%s", arr);
+    
+    for(i=0; i<n; i++)
+        sum+=arr[i]-48;      
+    printf("%d", sum);
+}
+
+
+9번 행을 주의하자.
+arr는 char형이고, sum은 int형이다. 그래서 굳이 sum+=(int)arr[i]-48; 꼴로 써주지 않아도 된다.
+
+하지만 만약 sum+=arr[i];와 같이 쓰는 경우, arr는 char형이므로, 숫자의 아스키코드 값을 반환하게 된다.
+
+따라서, 0의 아스키코드인 48을 빼줌으로서, 숫자 값만을 더하도록 코드를 짠다.
