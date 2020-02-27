@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	char **arr;
+	int a, i, j, b, x1, y1, x2, y2;
+	scanf("%d", &a);
+	arr = (char **) malloc(sizeof(char *) * a);
+	for (i = 0; i < a; i++)
+	{
+		arr[i] = (char *) malloc(sizeof(char) * a);
+		for (j = 0; j < a; j++)
+		{
+			arr[i][j] = '*';
+		}
+	}
+	for (b = a / 3; b != 0; b /= 3)
+	{
+		for (x1 = y1 = b; ; x1 += 3 * b)
+		{
+			if (x1 >= a)
+			{
+				x1 = b;
+				y1 += 3 * b;
+				if (y1 >= a)
+				{
+					break;
+				}
+			}
+			for (x2 = y2 = 0; ; x2++)
+			{
+				if (x2 >= b)
+				{
+					x2 = 0;
+					y2++;
+					if (y2 >= b)
+					{
+						break;
+					}
+				}
+				arr[y1 + y2][x1 + x2] = ' ';
+			}
+		}
+	}
+	for (i = 0; i < a; i++)
+	{
+		for (j = 0; j < a; j++)
+		{
+			printf("%c", arr[i][j]);
+		}
+		printf("\n");
+	}
+	for (i = 0; i < a; i++)
+	{
+		free(arr[i]);
+	}
+	free(arr);
+	return 0;
+}
+
+내가 푼 코드가 아니다. 2차원 배열을 이용했는데, 보고 이해하자
+출처 : https://joyfui.wo.tc/1165
+재귀로는 아직 모르겠다...
