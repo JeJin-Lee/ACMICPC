@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main(){
+    int k, T, R, len=0;
+    scanf("%d", &T);          // 테스트 케이스 횟수를 입력받는다
+    for(k=0; k<T; k++){       // 테스트 케이스 횟수만큼, 문자열을 입력받고, 반복 횟수를 입력받는다
+        char *str;
+    str = malloc(sizeof(char)*100);
+    scanf("%d", &R);
+    scanf("%s", str);
+    len = strlen(str);          // 입력받은 문자열의 길이를 구해준다
+    
+    for(int i=0; i<len; i++){
+        for(int j=0; j<R; j++){
+            printf("%c", str[i]);     // 배열의 요소를 입력받은 반
+            }
+        }
+        printf("\n");
+    }
+}
