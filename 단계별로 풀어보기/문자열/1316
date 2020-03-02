@@ -9,7 +9,7 @@ int main(){
         char *str=malloc(sizeof(char)*101);
     scanf("%s", str);
     if(groupcheck(str)==1)
-        cnt++;                          // 그룹단어의 개수를 
+        cnt++;                          // 그룹단어의 개수를 센다
     }
     printf("%d", cnt);
 }
