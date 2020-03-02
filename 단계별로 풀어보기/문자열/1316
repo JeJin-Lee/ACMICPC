@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int groupcheck();
+int main(){
+    int n, cnt=0;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        char *str=malloc(sizeof(char)*101);
+    scanf("%s", str);
+    if(groupcheck(str)==1)
+        cnt++;                          // 그룹단어의 개수를 
+    }
+    printf("%d", cnt);
+}
+
+int groupcheck(char *str){
+    char alphabet[26]={NULL,};          // 알파벳 배열을 만들고 초기화한다
+    int len=0, i;                       // len은 문자열의 길이
+    len=strlen(str);                    // 문자열의 길이를 구해준다 
+    alphabet[str[0]-97]++;              // 입력받은 문자열의 첫 번째 알파벳에 해당하는 배열의 원소를 1로 만들어준다
+    for(i=0; i<len-1; i++){   
+        if(str[i]==str[i+1])            // 만약 이웃한 두 알파벳이 같다면 계속 진행
+            continue;
+        else if(str[i]!=str[i+1]){      // 이웃한 두 알파벳이 다르다면?
+            alphabet[str[i+1]-97]++;    // 새로운 알파벳에 해당하는 배열의 원소 값을 1 늘려준다
+            if(alphabet[str[i+1]-97]>1) // 특정 알파벳이 나온 횟수가 1보다 크다? (1보다 크다는 건 해당 알파벳이 연속적으로 나오지 않음을 의미)
+                return 0;               // 단 위에서 연속적으로 나온 횟수는 배제
+        }
+            
+    }
+    return 1;                           // 반복문을 성공적으로 마무리 했다면 그 문자열은 그룹단어이다.
+}
