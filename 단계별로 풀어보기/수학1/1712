@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+    int a, b, c, n;
+    scanf("%d %d %d", &a, &b, &c);
+    int margin = c-b;
+    if(margin<=0)
+        printf("-1\n");
+    else
+        printf("%d\n", (a/margin)+1);
+}
+
+
+* 반복문을 사용하게 되면, 시간초과가 떠서 단순한 산수로 풀었다.
