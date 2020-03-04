@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(){
+    char str[1000001]={0,};       
+    int alphabet[26]={0,};                  
+    int len=0, max=0, check=0, i;
+    scanf("%s", str);
+    
+    len=strlen(str);
+    
+    for(i=0; i<len; i++){                   // 소문자인 경우, 대문자로 바꿔준다
+        if(str[i]>90)
+            str[i] = str[i]-32;
+        alphabet[str[i]-65]++;              // 해당 알파벳의 배열 값에 1을 더해줌
+    }
+    
+    for(i=1; i<26; i++){
+        if(alphabet[max]<alphabet[i]){      //max=0이라 초기화 했으므로, for문에서 i=1부터 시작(0으로 하게 되면 겹침)
+            max = i;                        // 나온 횟수가 다르다는 가정 하에, 가장 많이 나온 알파벳 구하는 과정
+            check=0;
+        }
+        else if(alphabet[max]==alphabet[i])   // 만약 나온 횟수가 같다면, 카운트를 1 늘려줌
+            check=1;
+    }
+    if(check)
+        printf("?\n");
+    else
+        printf("%c\n", (char)(max+65));
+    
+}
