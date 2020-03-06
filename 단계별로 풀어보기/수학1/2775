@@ -1,0 +1,21 @@
+#include <stdio.h>
+int people();
+int main(){
+    int t,k,n,i;
+    scanf("%d", &t);
+    for(i=0; i<t; i++){
+        scanf("%d %d", &k, &n);
+        printf("%d\n", people(k,n));    
+    }
+}
+
+int people(int k, int n){
+    int sum=0, i;
+    if(k==0)
+            return n;
+    for(i=1; i<=n; i++)
+        sum+=people(k-1,i);
+    return sum;
+}
+
+간단한 재귀함수를 이용하면 풀 
