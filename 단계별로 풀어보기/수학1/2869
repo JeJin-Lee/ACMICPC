@@ -3,9 +3,10 @@
 int main(){
     int a,b,v;
     scanf("%d %d %d", &a, &b, &v);
-    if(v==a)    printf("%1\n");
-    else        printf("%d\n", (int)ceil((v-b-1)/(a-b))+1);
+    if(v==a)    printf("1\n");
+    else        printf("%d\n", (v-b-1)/(a-b))+1);
 }
 
 
 //ceil 함수가 무엇인지 배울 수 있었다 (올림 함수)
+그러나 ceil 함수 쓸 필요 없음. 왜냐하면 c언어 나누기는 양수인 경우 ceil 역할을 함
