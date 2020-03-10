@@ -1,0 +1,24 @@
+#include <stdio.h>
+int bn();
+int main(){
+    int n, i=0, cnt=0;
+    scanf("%d", &n);
+    
+        while(1){
+        if(bn(i)>=n){
+            cnt = i;
+            break;
+        }
+        else
+            i++;
+        }    
+    
+    printf("%d", cnt+1);
+}
+
+int bn(int k){
+    return 3*k*k+3*k+1;
+}
+
+
+//계차수열의 점화식을 구해주면 쉽게 풀 
