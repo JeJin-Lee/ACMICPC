@@ -1,0 +1,27 @@
+#include <stdio.h>
+int hotel();
+int main(){
+    int T, i;
+    scanf("%d", &T);
+    for(i=0; i<T; i++){
+        int h,w,n;
+        scanf("%d %d %d", &h, &w, &n);
+        printf("%d\n", hotel(h,w,n));
+    }
+}
+int hotel(int h, int w, int n){
+    int floor=0, room_number=0, number;
+    if(n%h==0){
+        floor = h;
+        number = n/h;
+    }
+        
+    else{
+        floor = n%h;
+        number = n/h+1;
+    }
+    room_number = floor*100+number;
+    return room_number;
+}
+
+층 수와 사람의 수가 배수 관계일 때와 아닐 때를 
