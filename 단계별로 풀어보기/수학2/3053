@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+#define pi 3.14159265358979323846
+int main(){
+    int R;
+    double area1, area2;
+    scanf("%d", &R);
+    area1 = (double)(R*R*pi);
+    area2 = (double)(2*R*R);
+    
+    printf("%.6f\n", area1);
+    printf("%.6f\n", area2);
+  
+}
