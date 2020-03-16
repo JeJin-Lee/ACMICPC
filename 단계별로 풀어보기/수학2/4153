@@ -1,0 +1,28 @@
+#include <math.h>
+int main(){
+    while(1){
+        int arr[3]={0,};
+        int i,j,tmp;
+        for(i=0; i<3; i++)
+            scanf("%d", &arr[i]);
+            
+        if(arr[0]==0 && arr[1]==0 && arr[2]==0)         // 0,0,0 을 입력받으면 반복문 탈출하고 끝냄
+            break;
+        
+        else{
+            for(i=2; i>0; i--){                         // 버블정렬을 이용해 오름차순으로 정렬한다
+                for(j=0; j<i; j++){
+                    if(arr[j+1]<arr[j]){
+                        tmp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = tmp;
+                    }
+                }
+            }
+            if(pow(arr[0],2)+pow(arr[1],2)==pow(arr[2],2))      // 피타고라스 정리를 만족하는지 여부를 따진다
+                printf("right\n");
+            else
+                printf("wrong\n");
+            }    
+        }
+}
